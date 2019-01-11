@@ -47,7 +47,7 @@ class TimesheetContainer extends Component{
             How many meals did you eat?:
             <select value={this.state.food} onChange={e => this.setState({ food: parseInt(e.target.value) })}>
             <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>3+</option></select>
+            <option value='2'>2</option><option value='3'>3</option><option value='4'>4+</option></select>
             <br />
 
 
