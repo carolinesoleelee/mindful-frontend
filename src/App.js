@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from "react-router-dom";
 import './App.css';
+import HomePageContainer from "./components/HomePageContainer";
+import TimesheetContainer from "./components/TimesheetContainer";
+import AnalyticsContainer from "./components/AnalyticsContainer";
+import EmotionsContainer from "./components/EmotionsContainer";
+import NeedsContainer from "./components/NeedsContainer";
+import AllNeedsContainer from "./components/AllNeedsContainer";
+import AllEmotionsContainer from "./components/AllEmotionsContainer";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div>
+        <Navbar />
+        <Route exact path='/' component={HomePageContainer} />
+        <Route exact path='/timesheet' component={TimesheetContainer} />
+        <Route exact path='/analytics' component={AnalyticsContainer} />
+        <Route exact path='/emotions' component={EmotionsContainer} />
+        <Route exact path='/needs' component={NeedsContainer} />
+        <Route exact path='/allemotions' component={AllEmotionsContainer} />
+        <Route exact path='/allneeds' component={AllNeedsContainer} />
+        </div>
     );
   }
 }
