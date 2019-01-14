@@ -29,10 +29,20 @@ const timesheetsReducer = ( state = [], action) => {
   }
 }
 
+const fetchedTimesheetsReducer = (state = [], action) => {
+  switch(action.type) {
+    case 'FETCHED_TIMESHEETS':
+      return action.allTimesheets
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   emotions: emotionsReducer,
   loading: loadingReducer,
-  timesheets: timesheetsReducer
+  timesheets: timesheetsReducer,
+  allTimesheets: fetchedTimesheetsReducer,
 });
 
 

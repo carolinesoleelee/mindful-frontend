@@ -3,11 +3,12 @@ import {connect} from 'react-redux'
 import {fetchingEmotions} from '../redux/action'
 import {creatingTimesheets} from '../redux/action'
 
+
 class TimesheetContainer extends Component{
   constructor(props){
     super(props)
       this.state = {
-        user_id: 0,
+        user_id: 1,
         date: '',
         text: '',
         food: 0,
@@ -31,18 +32,20 @@ class TimesheetContainer extends Component{
       })
     }
   }
-    answers = (e) => {
-      console.log('works!')
+    onSubmit = (e) => {
+      e.preventDefault()
+      this.props.creatingTimesheets(this.state)
     }
 
   render(){
-    console.log(this.state.food,this.state.water,this.state.hours_of_sleep,this.state.bowel_movement, this.state.friends, this.state.family)
     return(
       <div className='Timesheet'>
-        {this.props.emotions.map(emo => <button onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}
-        <form>
-          <label>
+        {this.props.emotions.map(emo => <button onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}<br />
 
+        <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
+
+        <form onSubmit={(e)=> this.onSubmit(e)}>
+          <label>
 
             How many meals did you eat?:
             <select value={this.state.food} onChange={e => this.setState({ food: parseInt(e.target.value) })}>
@@ -70,7 +73,7 @@ class TimesheetContainer extends Component{
 
 
 
-            Bowl Movements?:
+            Bowel Movements?:
             <select value={this.state.bowel_movement} onChange={e => this.setState({ bowel_movement: parseInt(e.target.value) })}>
             <option value='0'>0</option><option value='1'>1</option>
             <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
@@ -79,18 +82,25 @@ class TimesheetContainer extends Component{
 
 
 
-            Hungout with friends?:
+            Hours spent with friends?:
             <select value={this.state.friends} onChange={e => this.setState({ friends: parseInt(e.target.value) })}>
-            <option value='0'>No</option><option value='1'>Yes</option>
+            <option value='0'>0</option><option value='1'>1</option>
+            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
+            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option>
             </select>
             <br />
 
 
-            Hungout with family?:
+            Hours spent with family?:
             <select value={this.state.family} onChange={e => this.setState({ family: parseInt(e.target.value) })}>
-            <option value='0'>No</option><option value='1'>Yes</option>
+            <option value='0'>0</option><option value='1'>1</option>
+            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
+            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option>
             </select>
             <br />
+
+            <label>Notable Moments</label><br/>
+            <textarea value={this.state.text} onChange={e => this.setState({ text: e.target.value })}/><br/>
 
 
           </label>
@@ -105,7 +115,10 @@ const mapStateToProps = (state) => {
   return {emotions: state.emotions}
 }
 
-export default connect(mapStateToProps, {fetchingEmotions})(TimesheetContainer);
+export default connect(mapStateToProps, {fetchingEmotions, creatingTimesheets})(TimesheetContainer);
+
+// console.log(this.state.chosenEmotion, this.state.date, this.state.food,
+//   this.state.water,this.state.hours_of_sleep,this.state.bowel_movement, this.state.friends, this.state.family, this.state.text)
 
 // class TimesheetContainer extends Component{
 //   constructor(){
