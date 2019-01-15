@@ -9,6 +9,7 @@ import NeedsContainer from "./components/NeedsContainer";
 import AllNeedsContainer from "./components/AllNeedsContainer";
 import AllEmotionsContainer from "./components/AllEmotionsContainer";
 import Navbar from "./components/Navbar";
+import Compare from "./components/Compare";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
         <Route exact path='/needs' component={NeedsContainer} />
         <Route exact path='/allemotions' component={AllEmotionsContainer} />
         <Route exact path='/allneeds' component={AllNeedsContainer} />
+        <Route exact path='/compare' component={Compare} />
         </div>
     );
   }

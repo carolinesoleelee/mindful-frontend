@@ -46,3 +46,12 @@ button:focus {
   display: grid;
 grid-template-columns: 25% 50%;
 }
+
+.compare {
+  display: grid;
+grid-template-columns: 50% 50%;
+}
+
+.static{
+  
+}
