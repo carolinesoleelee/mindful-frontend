@@ -21,15 +21,19 @@ class EmotionsContainer extends Component{
   }
 
   nextBatch = () => {
-  this.setState({
-    index: this.state.index + 3
-  })
-}
+      if(this.showTen().length > 1){
+    this.setState({
+      index: this.state.index + 3
+      })
+    }
+  }
 
 previousBatch = () => {
+    if(this.showTen().length >= 1){
   this.setState({
     index: this.state.index - 3
-  })
+    })
+  }
 }
 
 showTen = () => {
@@ -46,17 +50,25 @@ showTen = () => {
     return moods
   }
 
-  convert = (arr) => {
-    return arr.map(data => data == 1 ? 1 : 0)
+  convert = (arr, name) => {
+    console.log(arr)
+    return arr.map(data => data == name ? 1 : 0)
   }
+// arr.map(data => data == "Anxious" ? 1 : 0)
+
 
   render(){
- let stress = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Stressed').map(data => data ? 1 : 0))
- let anger = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Angry'))
- let anxious = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Anxious'))
- let exhausted = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Exhausted'))
- let burnt = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Burnt out'))
-    console.log(this.convert(anxious))
+ let stress = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Stressed').map(data => data.mood))
+ let anger = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Angry').map(data => data.mood))
+ let anxious = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Anxious').map(data => data.mood))
+ let exhausted = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Exhausted').map(data => data.mood))
+ let burnt = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Burnt out').map(data => data.mood))
+ let okay = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Okay').map(data => data.mood))
+ let content = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Content').map(data => data.mood))
+ let excited = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Excited').map(data => data.mood))
+ let happy = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Happy').map(data => data.mood))
+ let best = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Best Day Ever').map(data => data.mood))
+    console.log(this.convert(anger, 'Angry'))
 
     let dataObject = {
 
@@ -71,7 +83,7 @@ showTen = () => {
           borderWidth: 1,
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(179,181,198,1)",
-          data: [1,2,3]
+          data: this.convert(anxious, 'Anxious')
         }, {
           label: "Anger",
           fill: false,
@@ -81,7 +93,7 @@ showTen = () => {
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(255,99,132,1)",
           pointBorderColor: "#fff",
-          data: [2,3,4]
+          data: this.convert(anger, 'Angry')
         }, {
           label: "Stress",
           fill: false,
@@ -91,7 +103,7 @@ showTen = () => {
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(240, 50, 230, .4)",
           pointBorderColor: "#fff",
-          data: [3,4,5]
+          data: this.convert(stress, 'Stressed')
         }, {
           label: "Exhaustion",
           fill: false,
@@ -101,7 +113,7 @@ showTen = () => {
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(70, 240, 240, .4)",
           pointBorderColor: "#fff",
-          data: [4,5,6]
+          data: this.convert(exhausted, 'Exhausted')
         }, {
           label: "Burnt",
           fill: false,
@@ -111,7 +123,7 @@ showTen = () => {
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(0, 130, 200, .4)",
           pointBorderColor: "#fff",
-          data: [5,6,7]
+          data: this.convert(burnt, 'Burnt out')
         },
           ]
         },
@@ -130,7 +142,7 @@ showTen = () => {
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(179,181,198,1)",
-       data: [1,0,1]
+       data: this.convert(okay, 'Okay')
      }, {
        label: "Content",
        fill: false,
@@ -140,7 +152,7 @@ showTen = () => {
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(255,99,132,1)",
        pointBorderColor: "#fff",
-       data: [1,1,0]
+       data: this.convert(content, 'Content')
      }, {
        label: "Excited",
        fill: false,
@@ -150,7 +162,7 @@ showTen = () => {
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(240, 50, 230, .4)",
        pointBorderColor: "#fff",
-       data: [0,1,1]
+       data: this.convert(excited, 'Excited')
      }, {
        label: "Happy",
        fill: false,
@@ -160,7 +172,7 @@ showTen = () => {
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(70, 240, 240, .4)",
        pointBorderColor: "#fff",
-       data: [0,1,0]
+       data: this.convert(happy, 'Happy')
      }, {
        label: "Best Day",
        fill: false,
@@ -170,7 +182,7 @@ showTen = () => {
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(0, 130, 200, .4)",
        pointBorderColor: "#fff",
-       data: [0,0,0]
+       data: this.convert(best, 'Best Day Ever')
      },
        ]
      },
@@ -190,11 +202,13 @@ showTen = () => {
       <div className="chart">
       <div></div>
       <div>
-
+      <h2>3 Day Overview</h2>
       <Bar data={dataObject.negative} width={100}	height={50} options={
       { maintainAspectRatio: false },
       { title: {display: true, text: `Negative`, fontsize: 25},  }
       }/><br/><br/><br/>
+      <button onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
+      <button onClick={(e)=> {this.nextBatch(e)} } >Next</button>
       <Bar data={dataObject.positive} width={100}	height={50} options={
       { maintainAspectRatio: false },
       { title: {display: true, text: `Positive`, fontsize: 25},  }

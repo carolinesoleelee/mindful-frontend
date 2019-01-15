@@ -240,7 +240,7 @@ options: {
 
 
       <div>
-
+      <h2>7 Day Overview</h2>
       <button onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
       <button onClick={(e)=> {this.nextBatch(e)} } >Next</button>
 

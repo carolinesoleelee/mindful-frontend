@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {fetchingEmotions} from '../redux/action'
 import {creatingTimesheets} from '../redux/action'
 
@@ -105,6 +106,8 @@ class TimesheetContainer extends Component{
 
           </label>
           <input type="submit" value="Submit" /><br />
+            <Link to='/analytics'>
+            </Link>
         </form>
       </div>
     )
