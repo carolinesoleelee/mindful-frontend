@@ -11,6 +11,7 @@ class AllEmotionsContainer extends Component{
     super(props)
       this.state = {
     food: [],
+    notClicked: true,
     }
   }
 
@@ -35,6 +36,11 @@ class AllEmotionsContainer extends Component{
   }
 // arr.map(data => data == "Anxious" ? 1 : 0)
 
+handleToggle = () => {
+    this.setState({
+      notClicked: !this.state.notClicked
+    })
+  }
 
   render(){
  let stress = this.props.allTimesheets.map(data => data.emotions.filter(data => data.mood == 'Stressed').map(data => data.mood))
@@ -136,13 +142,13 @@ class AllEmotionsContainer extends Component{
        datasets: [
      {
        label: "Positive",
-       fill: false,
-       backgroundColor: "rgba(226, 9, 126, 0)",
-       borderColor: "rgba(179, 181, 198, 0.93)",
+       fill: true,
+       backgroundColor: "rgba(25, 96, 217, 0.62)",
+       borderColor: "rgba(25, 96, 217, 0.62)",
        borderWidth: .5,
        pointBorderColor: "#fff",
        pointBorderWidth: 'Dashed',
-       pointBackgroundColor: "rgba(255, 0, 0, 1)",
+       pointBackgroundColor: "rgba(25, 96, 217, 0.62)",
        pointStyle: 'rect',
        data: this.convert(okay, 'Okay')
      }]
@@ -152,12 +158,13 @@ class AllEmotionsContainer extends Component{
          datasets: [
        {
          label: "Positive",
-         backgroundColor: "rgba(226, 9, 126, 0)",
-         borderColor: "rgba(179, 181, 198, 0.93)",
+         fill: true,
+         backgroundColor: "rgba(25, 96, 217, 0.62)",
+         borderColor: "rgba(25, 96, 217, 0.62)",
          borderWidth: .5,
          pointBorderColor: "#fff",
          pointBorderWidth: 'Dashed',
-         pointBackgroundColor: "rgba(255, 0, 0, 1)",
+         pointBackgroundColor: "rgba(25, 96, 217, 0.62)",
          pointStyle: 'rect',
            data: this.convert(content, 'Content')
        }]
@@ -167,12 +174,13 @@ class AllEmotionsContainer extends Component{
            datasets: [
          {
            label: "Positive",
-           backgroundColor: "rgba(226, 9, 126, 0)",
-           borderColor: "rgba(179, 181, 198, 0.93)",
+           fill: true,
+           backgroundColor: "rgba(25, 96, 217, 0.62)",
+           borderColor: "rgba(25, 96, 217, 0.62)",
            borderWidth: .5,
            pointBorderColor: "#fff",
            pointBorderWidth: 'Dashed',
-           pointBackgroundColor: "rgba(255, 0, 0, 1)",
+           pointBackgroundColor: "rgba(25, 96, 217, 0.62)",
            pointStyle: 'rect',
              data: this.convert(excited, 'Excited')
          }]
@@ -182,12 +190,13 @@ class AllEmotionsContainer extends Component{
              datasets: [
            {
              label: "Positive",
-             backgroundColor: "rgba(226, 9, 126, 0)",
-             borderColor: "rgba(179, 181, 198, 0.93)",
+             fill: true,
+             backgroundColor: "rgba(25, 96, 217, 0.62)",
+             borderColor: "rgba(25, 96, 217, 0.62)",
              borderWidth: .5,
              pointBorderColor: "#fff",
              pointBorderWidth: 'Dashed',
-             pointBackgroundColor: "rgba(255, 0, 0, 1)",
+             pointBackgroundColor: "rgba(25, 96, 217, 0.62)",
              pointStyle: 'rect',
                data: this.convert(happy, 'Happy')
            }]
@@ -197,12 +206,13 @@ class AllEmotionsContainer extends Component{
                datasets: [
              {
                label: "Positive",
-               backgroundColor: "rgba(226, 9, 126, 0)",
-               borderColor: "rgba(179, 181, 198, 0.93)",
+               fill: true,
+               backgroundColor: "rgba(25, 96, 217, 0.62)",
+               borderColor: "rgba(25, 96, 217, 0.62)",
                borderWidth: .5,
                pointBorderColor: "#fff",
                pointBorderWidth: 'Dashed',
-               pointBackgroundColor: "rgba(255, 0, 0, 1)",
+               pointBackgroundColor: "rgba(25, 96, 217, 0.62)",
                pointStyle: 'rect',
                  data: this.convert(best, 'Best Day Ever')
              }]
@@ -223,49 +233,114 @@ class AllEmotionsContainer extends Component{
       <div className="chart">
       <div></div>
       <div>
-      <h2>Overall Emotions</h2>
-      <Line data={dataObject.anxious} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Anxiety`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.anger} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Anger`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.stress} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Stressed`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.exhausted} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Exhaustion`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.burnt} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Burnt`, fontsize: 25},  }
-      }/><br/><br/><br/>
+      {this.state.notClicked ?
+        <button
+          onClick={this.handleToggle}>
+            Click to see Positive
+        </button>
+        :
+        <button
+          onClick={this.handleToggle}>
+            Click to see Negative
+        </button>
+      }
 
-      <Line data={dataObject.okay} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Okay`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.content} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Content`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.excited} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Excited`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.happy} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Happy`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <Line data={dataObject.best} width={100}	height={50} options={
-      { maintainAspectRatio: false },
-      { title: {display: true, text: `Best day ever!`, fontsize: 25},  }
-      }/><br/><br/><br/>
+      {this.state.notClicked ?
 
+
+        <Line data={dataObject.anxious} width={100}	height={50} options={
+        { maintainAspectRatio: false },
+        { title: {display: true, text: `Anxiety`, fontsize: 25},  }
+      }/>
+
+    :
+                <Line data={dataObject.okay} width={100}	height={50} options={
+                { maintainAspectRatio: false },
+                { title: {display: true, text: `Okay`, fontsize: 25},  }
+                }/>
+              }
+
+
+
+
+
+              {this.state.notClicked ?
+
+
+                <Line data={dataObject.anger} width={100}	height={50} options={
+                { maintainAspectRatio: false },
+                { title: {display: true, text: `Anger`, fontsize: 25},  }
+              }/>
+
+            :
+                        <Line data={dataObject.content} width={100}	height={50} options={
+                        { maintainAspectRatio: false },
+                        { title: {display: true, text: `Content`, fontsize: 25},  }
+                        }/>
+                      }
+
+        {this.state.notClicked ?
+
+
+          <Line data={dataObject.stress} width={100}	height={50} options={
+          { maintainAspectRatio: false },
+          { title: {display: true, text: `Stressed`, fontsize: 25},  }
+        }/>
+
+      :
+                  <Line data={dataObject.excited} width={100}	height={50} options={
+                  { maintainAspectRatio: false },
+                  { title: {display: true, text: `Excited`, fontsize: 25},  }
+                  }/>
+                }
+
+                {this.state.notClicked ?
+
+
+                  <Line data={dataObject.exhausted} width={100}	height={50} options={
+                  { maintainAspectRatio: false },
+                  { title: {display: true, text: `Exhausted`, fontsize: 25},  }
+                }/>
+
+              :
+                          <Line data={dataObject.happy} width={100}	height={50} options={
+                          { maintainAspectRatio: false },
+                          { title: {display: true, text: `Happy`, fontsize: 25},  }
+                          }/>
+                        }
+                        {this.state.notClicked ?
+
+
+                          <Line data={dataObject.anger} width={100}	height={50} options={
+                          { maintainAspectRatio: false },
+                          { title: {display: true, text: `Anger`, fontsize: 25},  }
+                        }/>
+
+                        :
+                                  <Line data={dataObject.content} width={100}	height={50} options={
+                                  { maintainAspectRatio: false },
+                                  { title: {display: true, text: `Content`, fontsize: 25},  }
+                                  }/>
+                                }
+
+                                {this.state.notClicked ?
+
+
+                                  <Line data={dataObject.burnt} width={100}	height={50} options={
+                                  { maintainAspectRatio: false },
+                                  { title: {display: true, text: `Burnt out`, fontsize: 25},  }
+                                }/>
+
+                              :
+                                          <Line data={dataObject.best} width={100}	height={50} options={
+                                          { maintainAspectRatio: false },
+                                          { title: {display: true, text: `Best Day Ever`, fontsize: 25},  }
+                                          }/>
+                                        }
+
+
+
+<br /><br />
         <Link className='item' to={'/compare'}>
         <button>Compare</button>
         </Link><br/>
@@ -283,7 +358,47 @@ export default connect(mapStateToProps, {fetchingTimesheets, fetchingEmotions})(
 
 
 
-
+// <Line data={dataObject.anxious} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Anxiety`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.anger} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Anger`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.stress} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Stressed`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.exhausted} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Exhaustion`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.burnt} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Burnt`, fontsize: 25},  }
+// }/><br/><br/><br/>
+//         :
+//         <Line data={dataObject.okay} width={100}	height={50} options={
+//         { maintainAspectRatio: false },
+//         { title: {display: true, text: `Okay`, fontsize: 25},  }
+//         }/><br/><br/><br/>
+//         <Line data={dataObject.content} width={100}	height={50} options={
+//         { maintainAspectRatio: false },
+//         { title: {display: true, text: `Content`, fontsize: 25},  }
+//         }/><br/><br/><br/>
+//         <Line data={dataObject.excited} width={100}	height={50} options={
+//         { maintainAspectRatio: false },
+//         { title: {display: true, text: `Excited`, fontsize: 25},  }
+//         }/><br/><br/><br/>
+//         <Line data={dataObject.happy} width={100}	height={50} options={
+//         { maintainAspectRatio: false },
+//         { title: {display: true, text: `Happy`, fontsize: 25},  }
+//         }/><br/><br/><br/>
+//         <Line data={dataObject.best} width={100}	height={50} options={
+//         { maintainAspectRatio: false },
+//         { title: {display: true, text: `Best day ever!`, fontsize: 25},  }
+//         }/><br/><br/><br/>
 
 
 
@@ -344,6 +459,50 @@ export default connect(mapStateToProps, {fetchingTimesheets, fetchingEmotions})(
 //     }
 //   }}
 // />
+
+
+// <h2>Overall Emotions</h2>
+// <Line data={dataObject.anxious} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Anxiety`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.anger} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Anger`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.stress} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Stressed`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.exhausted} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Exhaustion`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.burnt} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Burnt`, fontsize: 25},  }
+// }/><br/><br/><br/>
+//
+// <Line data={dataObject.okay} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Okay`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.content} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Content`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.excited} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Excited`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.happy} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Happy`, fontsize: 25},  }
+// }/><br/><br/><br/>
+// <Line data={dataObject.best} width={100}	height={50} options={
+// { maintainAspectRatio: false },
+// { title: {display: true, text: `Best day ever!`, fontsize: 25},  }
+// }/><br/><br/><br/>
 
 // this.props.allTimesheets.map(data => data.emotions.map(data => data))
 // console.log(stress, anger, anxious, exhausted, burnt)

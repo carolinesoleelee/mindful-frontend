@@ -21,27 +21,28 @@ class EmotionsContainer extends Component{
   }
 
   nextBatch = () => {
-      if(this.showTen().length > 1){
+      if(this.state.index < this.show().length -1){
     this.setState({
       index: this.state.index + 3
       })
     }
-  }
+}
+
 
 previousBatch = () => {
-    if(this.showTen().length >= 1){
+    if(this.state.index > 0){
   this.setState({
     index: this.state.index - 3
     })
   }
 }
 
-showTen = () => {
-  return (this.props.allTimesheets.slice(this.state.index, this.state.index + 3))
+show = () => {
+  return (this.props.allTimesheets.slice(this.state.index, this.state.index + 5))
 }
 
   dates = () => {
-    let bro = this.showTen().map(data => [data.date])
+    let bro = this.show().map(data => [data.date])
     return bro.sort()
   }
 
@@ -58,16 +59,16 @@ showTen = () => {
 
 
   render(){
- let stress = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Stressed').map(data => data.mood))
- let anger = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Angry').map(data => data.mood))
- let anxious = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Anxious').map(data => data.mood))
- let exhausted = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Exhausted').map(data => data.mood))
- let burnt = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Burnt out').map(data => data.mood))
- let okay = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Okay').map(data => data.mood))
- let content = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Content').map(data => data.mood))
- let excited = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Excited').map(data => data.mood))
- let happy = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Happy').map(data => data.mood))
- let best = this.showTen().map(data => data.emotions.filter(data => data.mood == 'Best Day Ever').map(data => data.mood))
+ let stress = this.show().map(data => data.emotions.filter(data => data.mood == 'Stressed').map(data => data.mood))
+ let anger = this.show().map(data => data.emotions.filter(data => data.mood == 'Angry').map(data => data.mood))
+ let anxious = this.show().map(data => data.emotions.filter(data => data.mood == 'Anxious').map(data => data.mood))
+ let exhausted = this.show().map(data => data.emotions.filter(data => data.mood == 'Exhausted').map(data => data.mood))
+ let burnt = this.show().map(data => data.emotions.filter(data => data.mood == 'Burnt out').map(data => data.mood))
+ let okay = this.show().map(data => data.emotions.filter(data => data.mood == 'Okay').map(data => data.mood))
+ let content = this.show().map(data => data.emotions.filter(data => data.mood == 'Content').map(data => data.mood))
+ let excited = this.show().map(data => data.emotions.filter(data => data.mood == 'Excited').map(data => data.mood))
+ let happy = this.show().map(data => data.emotions.filter(data => data.mood == 'Happy').map(data => data.mood))
+ let best = this.show().map(data => data.emotions.filter(data => data.mood == 'Best Day Ever').map(data => data.mood))
     console.log(this.convert(anger, 'Angry'))
 
     let dataObject = {

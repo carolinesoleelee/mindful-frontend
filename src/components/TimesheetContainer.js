@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchingEmotions} from '../redux/action'
 import {creatingTimesheets} from '../redux/action'
+import {Redirect} from 'react-router-dom'
 
 
 class TimesheetContainer extends Component{
@@ -39,8 +40,9 @@ class TimesheetContainer extends Component{
     }
 
   render(){
-    return(
-      <div className='Timesheet'>
+    console.log(this.props.currentUser ? this.props.currentUser.id : null)
+    return(this.props.currentUser ?
+      (<div className='Timesheet'>
         {this.props.emotions.map(emo => <button onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}<br />
 
         <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
@@ -109,7 +111,8 @@ class TimesheetContainer extends Component{
             <Link to='/analytics'>
             </Link>
         </form>
-      </div>
+      </div>) : <Redirect to="/login" />
+
     )
   }
 }

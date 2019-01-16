@@ -53,5 +53,12 @@ grid-template-columns: 50% 50%;
 }
 
 .static{
-  
+
+}
+
+.logout{
+  position: absolute;
+  right: 0;
+  top: 0;
+
 }

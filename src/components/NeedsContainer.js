@@ -19,28 +19,31 @@ class NeedsContainer extends Component{
   }
 
   nextBatch = () => {
-      if(this.showTen().length > 1){
+      if(this.state.index < this.show().length -1){
     this.setState({
       index: this.state.index + 3
       })
     }
-  }
+}
+
 
 previousBatch = () => {
-    if(this.showTen().length >= 1){
+    if(this.state.index > 0){
   this.setState({
     index: this.state.index - 3
     })
   }
 }
 
-showTen = () => {
+show = () => {
   let sort = (this.props.allTimesheets.slice(this.state.index, this.state.index + 7))
+  console.log(sort)
   return sort.sort()
+
 }
 
   dates = () => {
-    let bro = this.showTen().map(data => [data.date])
+    let bro = this.show().map(data => [data.date])
     return bro.sort()
   }
 
@@ -49,14 +52,14 @@ showTen = () => {
   }
 
   render(){
-    let food = (this.showTen().map(data => data.food))
-    let water = (this.showTen().map(data => data.water))
-    let sleep = (this.showTen().map(data => data.hours_of_sleep))
-    let poop = (this.showTen().map(data => data.bowel_movement))
-    let friends = (this.showTen().map(data => data.friends))
-    let family = (this.showTen().map(data => data.family))
-    let text = (this.showTen().map(data => data.text))
-    console.log(this.showTen())
+    let food = (this.show().map(data => data.food))
+    let water = (this.show().map(data => data.water))
+    let sleep = (this.show().map(data => data.hours_of_sleep))
+    let poop = (this.show().map(data => data.bowel_movement))
+    let friends = (this.show().map(data => data.friends))
+    let family = (this.show().map(data => data.family))
+    let text = (this.show().map(data => data.text))
+    console.log(this.show())
     let dataObject = {
 
       meal: {
