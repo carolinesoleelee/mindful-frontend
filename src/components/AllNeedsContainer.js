@@ -201,7 +201,7 @@ options: {
 
 
     return (
-      <div className="chart">
+      <div className="chart2">
       <div >
 
       <div className='stick'>
@@ -245,12 +245,11 @@ options: {
       { title: {display: true, text: `Hours spent with family.`, fontsize: 25},  }
       }/><br/><br/><br/>
 
-
+      <Link className='item' to={'/needs'}>
+      <button>Go back</button>
+      </Link><br/>
 
         <Link className='item' to={'/allneeds'}>
-
-
-
         <button>See Needs Monthly Analytics?</button><br/>
         <button>See Needs Yearly Analytics?</button>
         </Link><br/>

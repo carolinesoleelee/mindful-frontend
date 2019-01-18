@@ -44,6 +44,11 @@ button:focus {
 
 .chart {
   display: grid;
+grid-template-columns: 38% 50%;
+}
+
+.chart2 {
+  display: grid;
 grid-template-columns: 25% 50%;
 }
 
@@ -53,7 +58,36 @@ grid-template-columns: 50% 50%;
 }
 
 .static{
+position: fixed;
+bottom: 24%;
+left: 4%;
+border: solid 1px;
+border-color: grey;
+border-radius: 5px;
+padding: 10px 10px 10px 10px;
+width: 295px;
+background-color: white
+}
 
+.Navbar {
+  position: relative;
+  background-color: rgba(79, 79, 79, 0.5);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a{
+    color: white;
+    margin: 3px;
+}
+
+h3{
+  color: rgb(85, 85, 85);
+  text-align: center;
 }
 
 .logout{
@@ -61,4 +95,19 @@ grid-template-columns: 50% 50%;
   right: 0;
   top: 0;
 
+}
+
+.but{
+      margin-left: 128px;
+}
+
+.out{
+  display: grid;
+grid-template-columns: 50% 50%;
+}
+
+p {
+  color: grey;
+  font-size: 13px;
+  height: 20px;
 }

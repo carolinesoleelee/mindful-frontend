@@ -230,9 +230,9 @@ handleToggle = () => {
  }
 
     return (
-      <div className="chart">
+      <div className="chart2">
       <div></div>
-      <div>
+      <div><h3>Overall Emotions</h3> 
       {this.state.notClicked ?
         <button
           onClick={this.handleToggle}>
@@ -341,6 +341,9 @@ handleToggle = () => {
 
 
 <br /><br />
+<Link className='item' to={'/emotions'}>
+<button>Go back</button>
+</Link><br/>
         <Link className='item' to={'/compare'}>
         <button>Compare</button>
         </Link><br/>

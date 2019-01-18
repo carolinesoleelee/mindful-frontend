@@ -8,12 +8,12 @@ const Navbar = props => {
   let logout = () => {
     setCurrentUser(null)
     localStorage.clear()
-    props.history.push('/user')
+    props.history.push('/login')
   }
 
 
   return (
-    <Menu pointing secondary>
+    <Menu pointing secondary className='Navbar'>
       {logged_in ? (<Fragment>
           <Menu.Item as={NavLink} to="/" name="Homepage" active={pathname === "/"}/>
           <Link className='item' to='/analytics'>Analytics</Link>

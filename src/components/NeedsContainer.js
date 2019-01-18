@@ -19,7 +19,7 @@ class NeedsContainer extends Component{
   }
 
   nextBatch = () => {
-      if(this.state.index < this.show().length -1){
+    if(this.show().length > 1){
     this.setState({
       index: this.state.index + 3
       })
@@ -35,16 +35,29 @@ previousBatch = () => {
   }
 }
 
-show = () => {
-  let sort = (this.props.allTimesheets.slice(this.state.index, this.state.index + 7))
-  console.log(sort)
-  return sort.sort()
+list = () =>{
+  let arr;
+  arr = this.props.allTimesheets.sort((a,b) => {
+    let first = new Date(a.date)
+    let last = new Date(b.date)
+    return last - first
+ })
+ return arr
+}
 
+show = () => {
+  let sort = (this.list().slice(this.state.index, this.state.index + 7))
+  return sort
+
+}
+
+text = () => {
+  return this.show().map(data => [data.text])
 }
 
   dates = () => {
     let bro = this.show().map(data => [data.date])
-    return bro.sort()
+    return bro
   }
 
   getSum = (total, num) => {
@@ -52,6 +65,7 @@ show = () => {
   }
 
   render(){
+    console.log(this.show())
     let food = (this.show().map(data => data.food))
     let water = (this.show().map(data => data.water))
     let sleep = (this.show().map(data => data.hours_of_sleep))
@@ -59,7 +73,6 @@ show = () => {
     let friends = (this.show().map(data => data.friends))
     let family = (this.show().map(data => data.family))
     let text = (this.show().map(data => data.text))
-    console.log(this.show())
     let dataObject = {
 
       meal: {
@@ -234,16 +247,16 @@ options: {
 
     return (
       <div className="chart">
-      <div >
+      <div>
 
-      <div className='stick'>
-
-      </div>
+          <div className='static'>
+            {this.show().map(data => <p>{data.date}: {data.text}</p>)}
+            </div>
       </div>
 
 
       <div>
-      <h2>7 Day Overview</h2>
+      <h2>7 Day Needs Overview</h2>
       <button onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
       <button onClick={(e)=> {this.nextBatch(e)} } >Next</button>
 
@@ -280,7 +293,9 @@ options: {
       }/><br/><br/><br/>
 
 
-
+      <Link className='item' to={'/analytics'}>
+      <button>Go back</button>
+      </Link><br/>
         <Link className='item' to={'/allneeds'}>
         <button>See All Needs Analytic</button>
         </Link><br/>
@@ -296,3 +311,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {fetchingTimesheets})(NeedsContainer);
+      // if(this.state.index < this.show().length -1){
+// <br /><br />
+//       {this.show().map(data => <p>{data.date}: {data.text}</p>)}

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {fetchingEmotions} from '../redux/action'
 import {creatingTimesheets} from '../redux/action'
-import {Redirect} from 'react-router-dom'
+import {Redirect, withRouter} from 'react-router-dom'
 
 
 class TimesheetContainer extends Component{
@@ -37,14 +37,21 @@ class TimesheetContainer extends Component{
     onSubmit = (e) => {
       e.preventDefault()
       this.props.creatingTimesheets(this.state)
+      this.props.history.push('/analytics')
+    }
+
+    convert = (id) => {
+      let arr = []
+      this.props.emotions.filter(data => data.id == id ? arr.push(data.mood) : null)
+      return arr
     }
 
   render(){
-    console.log(this.props.currentUser ? this.props.currentUser.id : null)
+    console.log(this.convert(this.state.chosenEmotion), this.props.emotions)
     return(this.props.currentUser ?
       (<div className='Timesheet'>
         {this.props.emotions.map(emo => <button onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}<br />
-
+        {this.convert(this.state.chosenEmotion)}<br/>
         <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
 
         <form onSubmit={(e)=> this.onSubmit(e)}>
@@ -102,7 +109,7 @@ class TimesheetContainer extends Component{
             </select>
             <br />
 
-            <label>Notable Moments</label><br/>
+            <label>Sum up your day in one sentence:</label><br/>
             <textarea value={this.state.text} onChange={e => this.setState({ text: e.target.value })}/><br/>
 
 
@@ -121,7 +128,7 @@ const mapStateToProps = (state) => {
   return {emotions: state.emotions}
 }
 
-export default connect(mapStateToProps, {fetchingEmotions, creatingTimesheets})(TimesheetContainer);
+export default withRouter(connect(mapStateToProps, {fetchingEmotions, creatingTimesheets})(TimesheetContainer));
 
 // console.log(this.state.chosenEmotion, this.state.date, this.state.food,
 //   this.state.water,this.state.hours_of_sleep,this.state.bowel_movement, this.state.friends, this.state.family, this.state.text)

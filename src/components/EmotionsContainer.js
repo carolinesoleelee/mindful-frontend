@@ -21,11 +21,11 @@ class EmotionsContainer extends Component{
   }
 
   nextBatch = () => {
-      if(this.state.index < this.show().length -1){
+    if(this.show().length > 1){
     this.setState({
       index: this.state.index + 3
       })
-    }
+   }
 }
 
 
@@ -37,13 +37,25 @@ previousBatch = () => {
   }
 }
 
+list = () =>{
+  let arr;
+  arr = this.props.allTimesheets.sort((a,b) => {
+    let first = new Date(a.date)
+    let last = new Date(b.date)
+    return last - first
+ })
+ return arr
+}
+
 show = () => {
-  return (this.props.allTimesheets.slice(this.state.index, this.state.index + 5))
+  let sort = (this.list().slice(this.state.index, this.state.index + 7))
+  return sort.sort()
+
 }
 
   dates = () => {
     let bro = this.show().map(data => [data.date])
-    return bro.sort()
+    return bro
   }
 
   moods = () => {
@@ -52,7 +64,6 @@ show = () => {
   }
 
   convert = (arr, name) => {
-    console.log(arr)
     return arr.map(data => data == name ? 1 : 0)
   }
 // arr.map(data => data == "Anxious" ? 1 : 0)
@@ -69,7 +80,7 @@ show = () => {
  let excited = this.show().map(data => data.emotions.filter(data => data.mood == 'Excited').map(data => data.mood))
  let happy = this.show().map(data => data.emotions.filter(data => data.mood == 'Happy').map(data => data.mood))
  let best = this.show().map(data => data.emotions.filter(data => data.mood == 'Best Day Ever').map(data => data.mood))
-    console.log(this.convert(anger, 'Angry'))
+    console.log(this.show().length > 1)
 
     let dataObject = {
 
@@ -201,23 +212,34 @@ show = () => {
 
     return (
       <div className="chart">
-      <div></div>
+
+      <div >
+
+      <div className='static'>
+            {this.show().map(data => <p>{data.date}: {data.text}</p>)}
+      </div>
+
+      </div>
+
       <div>
-      <h2>3 Day Overview</h2>
+      <h2>7 Day Emotions Overview</h2>
       <Bar data={dataObject.negative} width={100}	height={50} options={
       { maintainAspectRatio: false },
       { title: {display: true, text: `Negative`, fontsize: 25},  }
-      }/><br/><br/><br/>
-      <button onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
-      <button onClick={(e)=> {this.nextBatch(e)} } >Next</button>
+      }/><br/><br/>
+      <button className='but' onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
+      <button className='but' onClick={(e)=> {this.nextBatch(e)} } >Next</button>
       <Bar data={dataObject.positive} width={100}	height={50} options={
       { maintainAspectRatio: false },
       { title: {display: true, text: `Positive`, fontsize: 25},  }
       }/><br/><br/><br/>
 
+      <Link className='item' to={'/analytics'}>
+      <button>Go back</button>
+      </Link><br/>
         <Link className='item' to={'/allemotions'}>
         <button>See All Emotions Analytic</button>
-        </Link><br/>
+        </Link><br/><br/><br/><br/><br/>
       </div>
       </div>
     )
