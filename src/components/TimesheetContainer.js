@@ -49,11 +49,32 @@ class TimesheetContainer extends Component{
   render(){
     console.log(this.convert(this.state.chosenEmotion), this.props.emotions)
     return(this.props.currentUser ?
-      (<div className='Timesheet'>
-        {this.props.emotions.map(emo => <button onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}<br />
-        {this.convert(this.state.chosenEmotion)}<br/>
-        <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
+      (<div className='contain'><div className='Timesheet'>
+        <div></div>
 
+        <div className='one'>
+        <div></div>
+        <p> “Health is a state of complete harmony of the body, mind and spirit. When one is free from physical disabilities and mental distractions, the gates of the soul open.”</p>
+
+        <div><h3>Todays Date</h3>
+        <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
+        <div className='partone'>
+              <Link className='button1' to={'/analytics'}>
+              <button>See Analytics</button>
+              </Link>
+              </div>
+        </div>
+        <p>"The root of all health is in the brain. The trunk of it is in emotion. The branches and leaves are the body. The flower of health blooms when all parts work together."</p>
+
+        <div></div>
+        </div>
+
+
+
+
+  <div className='two'><div></div><div><h2>How do you feel today?</h2>{this.props.emotions.map(emo => <button className='butts' onClick ={(e)=> this.onClick(emo.id)}>{emo.mood}</button>)}</div><div></div></div>
+
+  <div className='three'>
         <form onSubmit={(e)=> this.onSubmit(e)}>
           <label>
 
@@ -118,7 +139,8 @@ class TimesheetContainer extends Component{
             <Link to='/analytics'>
             </Link>
         </form>
-      </div>) : <Redirect to="/login" />
+        </div>
+      </div> </div>) : <Redirect to="/login" />
 
     )
   }

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Redirect, withRouter } from "react-router-dom";
 import Login from './components/Login'
 import './App.css';
-import HomePageContainer from "./components/HomePageContainer";
 import TimesheetContainer from "./components/TimesheetContainer";
 import AnalyticsContainer from "./components/AnalyticsContainer";
 import EmotionsContainer from "./components/EmotionsContainer";
@@ -58,10 +57,8 @@ class App extends Component {
        <Route exact path="/login" render={() => this.state.loading ? null : (this.state.currentUser ?
            <Redirect to="/" /> : <Login setCurrentUser={this.setCurrentUser}/> )} />
 
-       <Route exact path='/' render ={() => {
-        return ( <HomePageContainer currentUser={this.state.currentUser}/>) }} />
 
-        <Route exact path='/timesheet'render ={() => {
+        <Route exact path='/'render ={() => {
          return ( <TimesheetContainer currentUser={this.state.currentUser}/>) }} />
         <Route exact path='/analytics' component={AnalyticsContainer} />
         <Route exact path='/emotions' component={EmotionsContainer} />

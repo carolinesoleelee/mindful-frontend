@@ -15,11 +15,13 @@ const Navbar = props => {
   return (
     <Menu pointing secondary className='Navbar'>
       {logged_in ? (<Fragment>
-          <Menu.Item as={NavLink} to="/" name="Homepage" active={pathname === "/"}/>
-          <Link className='item' to='/analytics'>Analytics</Link>
-          <Link className='item' to='/timesheet'>Timesheet</Link>
+        <div className='topbar'>
+          <Link className='it' to='/analytics'>ANALYTICS</Link>
+          <Link className='it' to='/'>DAILY LOG</Link>
+          <a className='it' href={'http://localhost:3003/user'}>RELIEF</a>
+          </div>
           <Menu.Menu position="right">
-            <Menu.Item to="/logout" className='logout' name="Logout" onClick={logout} />
+            <Menu.Item to="/logout" className='logout' name="LOGOUT" onClick={logout} />
           </Menu.Menu>
         </Fragment>) : (
         <Menu.Item
@@ -36,3 +38,4 @@ const Navbar = props => {
 const NavBarWithRouter = withRouter(Navbar);
 
 export default NavBarWithRouter;
+          // <a href={'http://localhost:3003/user'}>Let it out</a>
