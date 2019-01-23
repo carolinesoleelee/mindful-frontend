@@ -49,7 +49,8 @@ class TimesheetContainer extends Component{
   render(){
     console.log(this.convert(this.state.chosenEmotion), this.props.emotions)
     return(this.props.currentUser ?
-      (<div className='contain'><div className='Timesheet'>
+      (<div className='contain'>
+      <div className='Timesheet'>
         <div></div>
 
         <div className='one'>

@@ -90,17 +90,18 @@ show = () => {
         {
           label: "Anxiety",
           fill: false,
-          backgroundColor: "rgba(179,181,198,0.2)",
-          borderColor: "rgba(179,181,198,1)",
+          backgroundColor: "rgba(238, 69, 64, 0.61)",
+          borderColor: "rgba(238, 69, 64, 1)",
           borderWidth: 1,
+          fontColor: 'white',
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(179,181,198,1)",
           data: this.convert(anxious, 'Anxious')
         }, {
           label: "Anger",
           fill: false,
-          backgroundColor: "rgba(255,99,132,0.2)",
-          borderColor: "rgba(255,99,132,1)",
+          backgroundColor: "rgb(201, 42, 66, 0.61)",
+          borderColor: "rgb(201, 42, 66, 1)",
           borderWidth: 1,
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(255,99,132,1)",
@@ -109,8 +110,8 @@ show = () => {
         }, {
           label: "Stress",
           fill: false,
-          backgroundColor: "rgba(240, 50, 230, 0.27)",
-          borderColor: "rgba(240, 50, 230, .4)",
+          backgroundColor: "rgb(128, 19, 54, 0.61)",
+          borderColor: "rgb(128, 19, 54, 1)",
           borderWidth: 1,
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(240, 50, 230, .4)",
@@ -119,8 +120,8 @@ show = () => {
         }, {
           label: "Exhaustion",
           fill: false,
-          backgroundColor: "rgba(70, 240, 240, 0.21)",
-          borderColor: "rgba(70, 240, 240, .4)",
+          backgroundColor: "rgb(82, 10, 50, 0.61)",
+          borderColor: "rgb(82, 10, 50, 1)",
           borderWidth: 1,
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(70, 240, 240, .4)",
@@ -129,8 +130,8 @@ show = () => {
         }, {
           label: "Burnt",
           fill: false,
-          backgroundColor: "rgba(0, 130, 200, 0.27)",
-          borderColor: "rgba(0, 130, 200, .4)",
+          backgroundColor: "rgb(45, 20, 44, 0.61)",
+          borderColor: "rgb(45, 20, 44, 1)",
           borderWidth: 1,
           pointBorderColor: "#fff",
           pointBackgroundColor: "rgba(0, 130, 200, .4)",
@@ -139,18 +140,14 @@ show = () => {
         },
           ]
         },
-
-      options: {
-       scales: { yAxes: [{   ticks: { beginAtZero: true } }]   }
-   },
    positive: {
        labels: this.dates(),
        datasets: [
      {
        label: "Okay",
        fill: false,
-       backgroundColor: "rgba(179,181,198,0.2)",
-       borderColor: "rgba(179,181,198,1)",
+       backgroundColor: "rgb(174, 204, 102, 0.61)",
+       borderColor: "rgb(174, 204, 102, 1)",
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(179,181,198,1)",
@@ -158,8 +155,8 @@ show = () => {
      }, {
        label: "Content",
        fill: false,
-       backgroundColor: "rgba(255,99,132,0.2)",
-       borderColor: "rgba(255,99,132,1)",
+       backgroundColor: "rgb(142, 177, 105, 0.61)",
+       borderColor: "rgb(142, 177, 105, 1)",
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(255,99,132,1)",
@@ -168,8 +165,8 @@ show = () => {
      }, {
        label: "Excited",
        fill: false,
-       backgroundColor: "rgba(240, 50, 230, 0.27)",
-       borderColor: "rgba(240, 50, 230, .4)",
+       backgroundColor: "rgb(110, 150, 108, 0.61)",
+       borderColor: "rgb(110, 150, 108, 1)",
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(240, 50, 230, .4)",
@@ -178,8 +175,8 @@ show = () => {
      }, {
        label: "Happy",
        fill: false,
-       backgroundColor: "rgba(70, 240, 240, 0.21)",
-       borderColor: "rgba(70, 240, 240, .4)",
+       backgroundColor: "rgb(77, 122, 110, 0.61)",
+       borderColor: "rgb(77, 122, 110, 1)",
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(70, 240, 240, .4)",
@@ -188,8 +185,8 @@ show = () => {
      }, {
        label: "Best Day",
        fill: false,
-       backgroundColor: "rgba(0, 130, 200, 0.27)",
-       borderColor: "rgba(0, 130, 200, .4)",
+       backgroundColor: "rgb(45, 96, 113, 0.61)",
+       borderColor: "rgb(45, 96, 113, 1)",
        borderWidth: 1,
        pointBorderColor: "#fff",
        pointBackgroundColor: "rgba(0, 130, 200, .4)",
@@ -202,7 +199,7 @@ show = () => {
     scales: {
         yAxes: [{
             ticks: {
-                beginAtZero: true
+                fontFamily: "Verdana"
             }
         }]
     }
@@ -210,28 +207,31 @@ show = () => {
 
  }
 
+
     return (
       <div className="chart">
 
       <div >
 
       <div className='static'>
-            {this.show().map(data => <p>{data.date}: {data.text}</p>)}
+            {this.show().map(data => <p className='sticky'>{data.date}: {data.text}</p>)}
       </div>
 
       </div>
 
       <div>
-      <h2>7 Day Emotions Overview</h2>
+      <h2 className='title2'>7 Day Emotions Overview</h2>
       <Bar data={dataObject.negative} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Negative`, fontsize: 25},  }
+      { title: {display: true, text: `Negative`, fontsize: 25, fontColor: 'white'},  }
       }/><br/><br/>
+
       <button className='but' onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
       <button className='but' onClick={(e)=> {this.nextBatch(e)} } >Next</button>
+
       <Bar data={dataObject.positive} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Positive`, fontsize: 25},  }
+      { title: {display: true, text: `Positive`, fontsize: 25, fontColor: 'white'},  }
       }/><br/><br/><br/>
 
       <Link className='item' to={'/analytics'}>

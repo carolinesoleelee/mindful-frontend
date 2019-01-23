@@ -3,18 +3,70 @@
 }
 
 p, h1, h2, h3, h4{
-
+  font-family: ff-ernestine-pro, serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .Analytics{
-  background-image: url('https://cdn.dribbble.com/users/486498/screenshots/5553009/66-2.jpg');
+background-color: rgba(46, 18, 45, 0.96);
   background-size: cover;
   height: 600px;
+  display: grid;
+  grid-template-rows: 15% 30% 45%
 }
 
+.title2{
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.work{
+  display: grid;
+  grid-template-columns: 33% 14% 6% 14% 33%
+}
+
+img{
+  margin-top: 30%;
+  width: 100%;
+}
+
+img:hover{
+  opacity: .75;
+}
+
+.al{
+  color:white;
+}
+
+button:hover{
+  background-color: rgb(157, 16, 66);
+  border-color: rgb(157, 16, 66);
+}
+
+.it:hover, .logout:hover{
+  color: rgb(157, 16, 66);
+}
+
+
+.rando{
+  margin-top: 10%;
+margin-left: 20%;
+margin-right: 20%;
+text-align: center;
+font-size: 11px;
+line-height: 1.5em;
+}
+
+
 .Homepage{
-  background-image: url('https://cdn.dribbble.com/users/1081436/screenshots/3782832/untitled-2__2_.jpg');
-height: 600px;
+  background-image: url('https://i.imgur.com/cJfpQTN.png');
+  background-repeat: no-repeat;
+  background-position: 80% 30%;
+  background-size: 35%;
+  height: 600px;
+  background-color: rgba(46, 18, 45, 0.96);
+  position: relative;
+  top: -15px;
 }
 
 /* body {
@@ -27,6 +79,24 @@ height: 600px;
   height: 40vmin;
 }
 
+.lol {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  width: 300px;
+}
+
+.intro{
+  text-align: left;
+  color: rgba(255, 255, 255, 0.61);
+  font-size: 10px;
+  line-height: 20px
+}
+
+.title{
+  color: rgb(157, 16, 66);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,6 +106,15 @@ height: 600px;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+.one{
+  display: grid;
+  grid-template-columns: 24% 20% auto 20% 30%;
+}
+
+.two{
+  display: grid;
+  grid-template-columns: 12.5% auto 12.5%;
 }
 
 .App-link {
@@ -73,31 +152,21 @@ h2 {
 }
 
 button:focus {
-    background-color: peachpuff;
+    background-color: rgb(165, 151, 226);
 }
 
 body{
-    background-color: #F4F4EC;
+    background-color: #eaeaea;
 }
 
 .chart {
   display: grid;
 grid-template-columns: 38% 50%;
-border: solid .5px;
-padding-bottom: 10%;
-margin: 0px 81px 0px 81px;
-border-color: rgb(205, 205, 205);
-background-color: rgb(255, 255, 255);
 }
 
 .chart2 {
   display: grid;
 grid-template-columns: 25% 50%;
-border: solid .5px;
-padding-bottom: 10%;
-margin: 0px 81px 0px 81px;
-border-color: rgb(205, 205, 205);
-background-color: rgb(255, 255, 255);
 }
 
 .compare {
@@ -108,13 +177,18 @@ grid-template-columns: 50% 50%;
 .static{
 position: fixed;
 bottom: 24%;
-left: 10%;
+left: 8%;
 border: solid 1px;
-border-color: gainsboro;
+border-color: rgba(204, 172, 204, 0.17);
 border-radius: 5px;
 padding: 10px 10px 10px 10px;
 width: 295px;
-background-color: white
+background-color: rgba(55, 30, 54, 0.1);
+}
+
+.sticky{
+  text-align: left;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .lo{
@@ -122,14 +196,8 @@ background-color: white
   margin-top: 15%;
 }
 
-.rando{
 
-width: 250px;
-position: absolute;
-right: 10px;
-top: 25%;
-line-height: 20px;
-}
+
 .li{
   margin-left: 9%;
 }
@@ -139,13 +207,14 @@ line-height: 20px;
   padding-top: 9px;
   padding-bottom: 9px;
   font-family: ff-ernestine-pro, serif;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 8px;
   font-style: normal;
+  letter-spacing: 1.25px;
 }
 
 .it{
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 
@@ -199,28 +268,51 @@ p {
 } */
 
 .contain{
-background-color: #F4F4EC;
+
 }
+
+.button1{
+  position: absolute;
+  top: 141%;
+  left: 0;
+  background-color: rgba(46, 18, 45, 0.96);
+  color: white;
+  border: .75px solid white;
+  font-family: ff-ernestine-pro, serif;
+  font-weight: 300;
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.button2{
+  position: absolute;
+  top: 141%;
+  left: 34%;
+  background-color: rgba(46, 18, 45, 0.96);
+  color: white;
+  border: .75px solid white;
+  font-family: ff-ernestine-pro, serif;
+  font-weight: 300;
+  font-size: 9px;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+
 
 .Timesheet{
   display: grid;
   grid-template-rows: 10% 20% 40% auto 20%;
-  border: solid .5px;
-  padding-bottom: 10%;
-  margin: 0px 81px 0px 81px;
-  border-color: rgb(205, 205, 205);
-  background-color: rgb(255, 255, 255);
+
 }
 
-.one{
-  display: grid;
-  grid-template-columns: 24% 20% auto 20% 30%;
-}
 
-.two{
-  display: grid;
-  grid-template-columns: 12.5% auto 12.5%;
-}
 form {
     width: 400px;
     margin: 0 auto;

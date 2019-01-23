@@ -17,7 +17,7 @@ const Navbar = props => {
       {logged_in ? (<Fragment>
         <div className='topbar'>
           <Link className='it' to='/analytics'>ANALYTICS</Link>
-          <Link className='it' to='/'>DAILY LOG</Link>
+          <Link className='it' to='/timesheet'>DAILY LOG</Link>
           <a className='it' href={'http://localhost:3003/user'}>RELIEF</a>
           </div>
           <Menu.Menu position="right">

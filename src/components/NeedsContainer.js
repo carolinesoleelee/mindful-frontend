@@ -250,7 +250,7 @@ options: {
       <div>
 
           <div className='static'>
-            {this.show().map(data => <p>{data.date}: {data.text}</p>)}
+            {this.show().map(data => <p className='sticky'>{data.date}: {data.text}</p>)}
             </div>
       </div>
 

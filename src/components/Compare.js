@@ -447,7 +447,7 @@ class Compare extends Component{
                  title: {
                    text: 'More than 3 [Positive]',
                    display: true,
-                   fontsize: 200
+                   fontsize: 200,
                  },
                  legend: {
                    display: false,
