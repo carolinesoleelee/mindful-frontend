@@ -24,11 +24,11 @@ input[type=range] {
   background: white;
   -webkit-appearance: none;
   width: 70%;
-  margin: 5.8px 10px;
+  margin: 5.8px 12px;
   border-radius: 5px;
   height: 3px;
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* this is for thumb button icon*/
@@ -68,7 +68,11 @@ input[type=range]::-webkit-slider-thumb:hover {
     content: '';
 }
 
-
+.column{
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
 
 .work{
   display: grid;
@@ -99,7 +103,11 @@ button:hover{
 
 .question{
   color: rgba(64, 15, 62, 0.88);
-  height: 2px;
+  height: 5px;
+  font-family: ff-ernestine-pro, serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 12.5px;
 }
 
 .range-slider__value{
@@ -170,12 +178,12 @@ line-height: 1.5em;
 }
 .one{
   display: grid;
-  grid-template-columns: 24% 20% auto 20% 30%;
+  grid-template-columns: 44.5% auto 44%;
 }
 
 .two{
   display: grid;
-  grid-template-columns: 12.5% auto 12.5%;
+  grid-template-columns: 34.5% 31% 34.5%;
 }
 
 .App-link {
@@ -195,21 +203,20 @@ h2 {
   color: grey;
 }
 .butts{
-  width: 61px;
+      width: 58px;
       height: 58px;
-      line-height: 15px;
-      border: 2px solid #f5f5f5;
+      border: .5px solid rgba(46, 18, 45, 0.46);
       border-radius: 50%;
-      color: black;
+      color: rgba(46, 18, 45, 0.96);
       text-align: center;
       text-decoration: none;
-      /* background: #464646; */
-      box-shadow: 0 0 3px grey;
-      font-size: 6px;
-      /* margin: -1px; */
-      margin-right: 35px;
-      margin-left: 44px;
-      margin-bottom: 15px;
+      font-family: mongoose, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: #f4f4f4;
 }
 
 button:focus {
@@ -369,7 +376,7 @@ p {
 
 .Timesheet{
   display: grid;
-  grid-template-rows: 10% 20% 40% auto 20%;
+  grid-template-rows: 5% 20% 20% auto 20%;
 
 }
 
