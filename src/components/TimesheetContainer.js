@@ -47,7 +47,7 @@ class TimesheetContainer extends Component{
     }
 
   render(){
-    console.log(this.convert(this.state.chosenEmotion), this.props.emotions)
+    console.log(this.state.chosenEmotion, this.state.date, this.state.food, this.state.water,this.state.hours_of_sleep,this.state.bowel_movement, this.state.friends, this.state.family, this.state.text)
     return(this.props.currentUser ?
       (<div className='contain'>
       <div className='Timesheet'>
@@ -60,9 +60,7 @@ class TimesheetContainer extends Component{
         <div><h3>Todays Date</h3>
         <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
         <div className='partone'>
-              <Link className='button1' to={'/analytics'}>
-              <button>See Analytics</button>
-              </Link>
+
               </div>
         </div>
         <p>"The root of all health is in the brain. The trunk of it is in emotion. The branches and leaves are the body. The flower of health blooms when all parts work together."</p>
@@ -79,59 +77,46 @@ class TimesheetContainer extends Component{
         <form onSubmit={(e)=> this.onSubmit(e)}>
           <label>
 
-            How many meals did you eat?:
-            <select value={this.state.food} onChange={e => this.setState({ food: parseInt(e.target.value) })}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4+</option></select>
+            <p className='question'>How many meals did you eat?</p>
+              <input type="range" min="0" max="6" value={this.state.food} onChange={e => this.setState({ food: parseInt(e.target.value) })}/>
+              <span class="range-slider__value">{this.state.food}</span>
             <br />
 
 
 
-            How many cups of water did you drink?:
-            <select value={this.state.water} onChange={e => this.setState({ water: parseInt(e.target.value)})}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
-            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select>
+            <p className='question'>How many cups of water did you drink?</p>
+            <input type="range" min="0" max="10" value={this.state.water} onChange={e => this.setState({ water: parseInt(e.target.value)})}/>
+              <span class="range-slider__value">{this.state.water}</span>
             <br />
 
 
 
-            How many hours did you sleep?:
-            <select value={this.state.hours_of_sleep} onChange={e => this.setState({ hours_of_sleep: parseInt(e.target.value) })}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
-            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option></select>
+            <p className='question'>How many hours did you sleep?</p>
+              <input type="range" min="0" max="10" value={this.state.hours_of_sleep} onChange={e => this.setState({ hours_of_sleep: parseInt(e.target.value) })}/>
+                <span class="range-slider__value">{this.state.hours_of_sleep}</span>
             <br />
 
 
 
-            Bowel Movements?:
-            <select value={this.state.bowel_movement} onChange={e => this.setState({ bowel_movement: parseInt(e.target.value) })}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
-            <option value='5'>5</option></select>
+            <p className='question'>Number of bowel movements?</p>
+            <input type="range" min="0" max="5" value={this.state.bowel_movement} onChange={e => this.setState({ bowel_movement: parseInt(e.target.value) })}/>
+                <span class="range-slider__value">{this.state.bowel_movement}</span>
             <br />
 
 
 
-            Hours spent with friends?:
-            <select value={this.state.friends} onChange={e => this.setState({ friends: parseInt(e.target.value) })}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
-            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option>
-            </select>
+            <p className='question'>Hours spent socializing with friends?</p>
+              <input type="range" min="0" max="10" value={this.state.friends} onChange={e => this.setState({ friends: parseInt(e.target.value) })}/>
+                <span class="range-slider__value">{this.state.friends}</span>
             <br />
 
 
-            Hours spent with family?:
-            <select value={this.state.family} onChange={e => this.setState({ family: parseInt(e.target.value) })}>
-            <option value='0'>0</option><option value='1'>1</option>
-            <option value='2'>2</option><option value='3'>3</option><option value='4'>4</option>
-            <option value='5'>5</option><option value='6'>6</option><option value='7'>7</option>
-            </select>
+            <p className='question'>Hours spent with family?</p>
+            <input type="range" min="0" max="10" value={this.state.family} onChange={e => this.setState({ family: parseInt(e.target.value) })}/>
+                                <span class="range-slider__value">{this.state.family}</span>
             <br />
 
-            <label>Sum up your day in one sentence:</label><br/>
+            <label className='question'>Sum up your day in one sentence:</label><br/>
             <textarea value={this.state.text} onChange={e => this.setState({ text: e.target.value })}/><br/>
 
 

@@ -19,6 +19,56 @@ background-color: rgba(46, 18, 45, 0.96);
 .title2{
   color: rgba(255, 255, 255, 0.85);
 }
+/*this is for line*/
+input[type=range] {
+  background: white;
+  -webkit-appearance: none;
+  width: 70%;
+  margin: 5.8px 10px;
+  border-radius: 5px;
+  height: 3px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+/* this is for thumb button icon*/
+input[type=range]::-webkit-slider-thumb {
+  background: rgba(46, 18, 45, 0.96);
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .15s ease-in-out;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+        background: rgb(157, 16, 66);
+}
+
+/* this is for the notification icon */
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  color: #fff;
+  line-height: 20px;
+  border-radius: 5px;
+  background: rgb(157, 16, 66);
+  padding: 3px 0px;
+}
+
+.range-slider__value:after {
+    position: absolute;
+    top: 9.75px;
+    left: -6.5px;
+    border-top: 7px solid transparent;
+    border-right: 7px solid rgb(157, 16, 66);
+    border-bottom: 7px solid transparent;
+    content: '';
+}
+
+
 
 .work{
   display: grid;
@@ -45,6 +95,17 @@ button:hover{
 
 .it:hover, .logout:hover{
   color: rgb(157, 16, 66);
+}
+
+.question{
+  color: rgba(64, 15, 62, 0.88);
+  height: 2px;
+}
+
+.range-slider__value{
+  font-family: ff-ernestine-pro, serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 
