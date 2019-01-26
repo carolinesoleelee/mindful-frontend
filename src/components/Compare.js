@@ -345,7 +345,7 @@ class Compare extends Component{
       <div>
       <br/>
       <br/>
-      <h3>Emotions Based on Hours of Sleep</h3>
+      <h3 className='title2'>Emotions Based on Hours of Sleep</h3>
       {this.state.notClicked ?
         <Pie data={dataObject.lowSleepNeg} width={100}	height={50} options={{
                      title: {
@@ -393,18 +393,19 @@ class Compare extends Component{
       </div>
       <div>
       <br/>
+      <br/>
       {this.state.notClicked ?
-        <button
+        <button className='comp'
           onClick={this.handleToggle}>
             See Positive Effects
         </button>
         :
-        <button
+        <button className='comp'
           onClick={this.handleToggle}>
             See Negative Effects
         </button>
       }
-      <h3>Emotions Based on Water intake</h3>
+      <h3 className='title2'>Emotions Based on Water intake</h3>
       {this.state.notClicked ?
         <Pie data={dataObject.lowWaterNeg} width={100}	height={50} options={{
                    title: {

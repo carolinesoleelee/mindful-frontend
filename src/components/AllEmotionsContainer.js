@@ -232,18 +232,21 @@ handleToggle = () => {
     return (
       <div className="chart2">
       <div></div>
-      <div><h3>Overall Emotions</h3> 
+      <div><br/><br/><h3 className="title2">Overall Emotions</h3>
       {this.state.notClicked ?
-        <button
+        <button className='butter2'
           onClick={this.handleToggle}>
             Click to see Positive
         </button>
         :
-        <button
+        <button className='butter2'
           onClick={this.handleToggle}>
             Click to see Negative
         </button>
       }
+      <br/><br/><br/>
+
+
 
       {this.state.notClicked ?
 
@@ -338,15 +341,14 @@ handleToggle = () => {
                                           }/>
                                         }
 
-
-
-<br /><br />
-<Link className='item' to={'/emotions'}>
-<button>Go back</button>
-</Link><br/>
-        <Link className='item' to={'/compare'}>
-        <button>Compare</button>
-        </Link><br/>
+                                        <br />
+                                        <br/><Link className='item' to={'/emotions'}>
+                                        <button className='butter'>Go back</button>
+                                        </Link>
+                                                <Link className='item' to={'/compare'}>
+                                                <button className='butter'>Compare</button>
+                                                </Link><br/>
+<br /><br /><br/><br/><br/><br/>
       </div>
       </div>
     )

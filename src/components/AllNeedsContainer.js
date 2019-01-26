@@ -210,8 +210,8 @@ options: {
       </div>
 
 
-      <div>
-      <h2>Overall Needs</h2>
+      <div><br/><br/><br/>
+      <h2 className='title2'>Overall Needs</h2>
 
 
 
@@ -243,16 +243,18 @@ options: {
       <Line data={dataObject.family} width={100}	height={50} options={
       { maintainAspectRatio: false },
       { title: {display: true, text: `Hours spent with family.`, fontsize: 25},  }
-      }/><br/><br/><br/>
+      }/>
 
-      <Link className='item' to={'/needs'}>
-      <button>Go back</button>
-      </Link><br/>
+<br/><br/>
+      <br/><Link className='item' to={'/needs'}>
+      <button className='butter'>Go back</button>
+      </Link>
+              <Link className='item' to={'/compare'}>
+              <button className='butter'>Compare</button>
+              </Link><br/>
+      <br/><br/><br/><br/><br/>
 
-        <Link className='item' to={'/allneeds'}>
-        <button>See Needs Monthly Analytics?</button><br/>
-        <button>See Needs Yearly Analytics?</button>
-        </Link><br/>
+
       </div>
       </div>
     )

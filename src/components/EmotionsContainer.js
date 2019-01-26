@@ -214,32 +214,33 @@ show = () => {
       <div >
 
       <div className='static'>
+
+      <button className='but1' onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
+      <button className='but1' onClick={(e)=> {this.nextBatch(e)} } >Next</button>
             {this.show().map(data => <p className='sticky'>{data.date}: {data.text}</p>)}
+            <Link to={'/analytics'}>
+            <button className='but'>Go back</button>
+            </Link>
+              <Link to={'/allemotions'}>
+              <button className='but'>All Emotions</button>
+              </Link>
       </div>
 
       </div>
 
-      <div>
+      <div><br/><br/>
       <h2 className='title2'>7 Day Emotions Overview</h2>
       <Bar data={dataObject.negative} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Negative`, fontsize: 25, fontColor: 'white'},  }
+      { title: {display: true, text: `Negative`, fontsize: 25, fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
       }/><br/><br/>
-
-      <button className='but' onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
-      <button className='but' onClick={(e)=> {this.nextBatch(e)} } >Next</button>
 
       <Bar data={dataObject.positive} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Positive`, fontsize: 25, fontColor: 'white'},  }
+      { title: {display: true, text: `Positive`, fontsize: 25, fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
       }/><br/><br/><br/>
 
-      <Link className='item' to={'/analytics'}>
-      <button>Go back</button>
-      </Link><br/>
-        <Link className='item' to={'/allemotions'}>
-        <button>See All Emotions Analytic</button>
-        </Link><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/>
       </div>
       </div>
     )

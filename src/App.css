@@ -11,13 +11,17 @@ p, h1, h2, h3, h4{
 .Analytics{
 background-color: rgba(46, 18, 45, 0.96);
   background-size: cover;
-  height: 600px;
+  height: 635px;
   display: grid;
   grid-template-rows: 15% 30% 45%
 }
 
 .title2{
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(46, 18, 45, 0.96);
+  font-family: mongoose;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 30px;
 }
 /*this is for line*/
 input[type=range] {
@@ -29,6 +33,10 @@ input[type=range] {
   height: 3px;
   outline: none;
   margin-bottom: 10px;
+}
+
+button{
+    outline: none;
 }
 
 /* this is for thumb button icon*/
@@ -92,6 +100,23 @@ img:hover{
   color:white;
 }
 
+.comp{
+  position: absolute;
+bottom: 25%;
+left: 44%;
+background-color: rgba(46, 18, 45, 0.96);
+    color: white;
+    border: .75px solid rgba(46, 18, 45, 0.96);
+    border-radius: 3px;
+    font-family: ff-ernestine-pro, serif;
+    font-weight: 300;
+    font-size: 9px;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 6px 4px 6px;
+}
+
 button:hover{
   background-color: rgb(157, 16, 66);
   border-color: rgb(157, 16, 66);
@@ -132,7 +157,7 @@ line-height: 1.5em;
   background-repeat: no-repeat;
   background-position: 80% 30%;
   background-size: 35%;
-  height: 600px;
+  height: 635px;
   background-color: rgba(46, 18, 45, 0.96);
   position: relative;
   top: -15px;
@@ -186,6 +211,11 @@ line-height: 1.5em;
   grid-template-columns: 34.5% 31% 34.5%;
 }
 
+.date{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -203,6 +233,8 @@ h2 {
   color: grey;
 }
 .butts{
+  margin-left: 13px;
+margin-right: 13px;
       width: 58px;
       height: 58px;
       border: .5px solid rgba(46, 18, 45, 0.46);
@@ -217,10 +249,11 @@ h2 {
       text-transform: uppercase;
       letter-spacing: 1px;
       background-color: #f4f4f4;
+        outline: none;
 }
 
-button:focus {
-    background-color: rgb(165, 151, 226);
+.butts:focus {
+    background-color: rgb(157, 16, 66);
 }
 
 body{
@@ -243,20 +276,24 @@ grid-template-columns: 50% 50%;
 }
 
 .static{
-position: fixed;
-bottom: 24%;
-left: 8%;
-border: solid 1px;
-border-color: rgba(204, 172, 204, 0.17);
-border-radius: 5px;
-padding: 10px 10px 10px 10px;
-width: 295px;
-background-color: rgba(55, 30, 54, 0.1);
+  position: fixed;
+  bottom: 24%;
+  left: 8%;
+  border: solid 1px;
+  border-color: rgba(97, 64, 97, 0.17);
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  width: 295px;
+  background-color: rgba(167, 167, 167, 0.1);
 }
 
 .sticky{
   text-align: left;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(46, 18, 45, 0.96);
+  font-family: mongoose;
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 18px;
 }
 
 .lo{
@@ -312,7 +349,65 @@ h3{
 }
 
 .but{
-      margin-left: 128px;
+          background-color: rgba(46, 18, 45, 0.96);
+              color: white;
+              border: .75px solid rgba(46, 18, 45, 0.96);
+              border-radius: 3px;
+              font-family: ff-ernestine-pro, serif;
+              font-weight: 300;
+              font-size: 9px;
+              font-style: normal;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 4px 6px 4px 6px;
+}
+
+.butter{
+          margin-left: 27%;
+          background-color: rgba(46, 18, 45, 0.96);
+              color: white;
+              border: .75px solid rgba(46, 18, 45, 0.96);
+              border-radius: 3px;
+              font-family: ff-ernestine-pro, serif;
+              font-weight: 300;
+              font-size: 9px;
+              font-style: normal;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 4px 6px 4px 6px;
+
+}
+
+.butter2{
+          margin-left: 39.5%;
+          margin-right: 39.5%;
+          background-color: rgba(46, 18, 45, 0.96);
+              color: white;
+              border: .75px solid rgba(46, 18, 45, 0.96);
+              border-radius: 3px;
+              font-family: ff-ernestine-pro, serif;
+              font-weight: 300;
+              font-size: 9px;
+              font-style: normal;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 4px 6px 4px 6px;
+
+}
+
+.but1{
+          margin-left: 1.75%;
+          background-color: rgba(46, 18, 45, 0.96);
+              color: white;
+              border: .75px solid rgba(46, 18, 45, 0.96);
+              border-radius: 3px;
+              font-family: ff-ernestine-pro, serif;
+              font-weight: 300;
+              font-size: 9px;
+              font-style: normal;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              padding: 4px 6px 4px 6px;
 }
 
 .out{
@@ -372,7 +467,19 @@ p {
   margin-left: 10px;
 }
 
-
+.submit{
+  background-color: rgba(46, 18, 45, 0.96);
+      color: white;
+      border: .75px solid rgba(46, 18, 45, 0.96);
+      border-radius: 3px;
+      font-family: ff-ernestine-pro, serif;
+      font-weight: 300;
+      font-size: 9px;
+      font-style: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 6px 4px 6px;
+}
 
 .Timesheet{
   display: grid;

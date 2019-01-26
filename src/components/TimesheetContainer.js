@@ -57,12 +57,12 @@ class TimesheetContainer extends Component{
         <div></div>
 
         <div><h3>Todays Date</h3>
-        <input type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
+        <input className='date' type="date" min="2019-01-01" max="2019-12-31" value={this.state.date} onChange={e => this.setState({ date: e.target.value })}/>
         <div className='partone'>
 
               </div>
         </div>
-    
+
         <div></div>
         </div>
 
@@ -119,7 +119,7 @@ class TimesheetContainer extends Component{
 
 
           </label>
-          <input type="submit" value="Submit" /><br />
+          <input className='submit' type="submit" value="Submit" /><br />
             <Link to='/analytics'>
             </Link>
         </form>

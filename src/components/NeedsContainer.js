@@ -250,22 +250,29 @@ options: {
       <div>
 
           <div className='static'>
+          <button className='but1' onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
+          <button className='but1' onClick={(e)=> {this.nextBatch(e)} } >Next</button>
             {this.show().map(data => <p className='sticky'>{data.date}: {data.text}</p>)}
+            <Link to={'/analytics'}>
+            <button className='but'>Go back</button>
+            </Link>
+              <Link to={'/allneeds'}>
+              <button className='but'>All Needs</button>
+              </Link><br/>
             </div>
       </div>
 
 
-      <div>
-      <h2>7 Day Needs Overview</h2>
-      <button onClick={(e)=> {this.previousBatch(e)} } >Prev</button>
-      <button onClick={(e)=> {this.nextBatch(e)} } >Next</button>
+      <div><br/><br/><br/>
+      <h2 className='title2'>7 Day Needs Overview</h2>
+
 
 
 
 
       <Bar data={dataObject.meal} width={100}	height={50} options={
     { maintainAspectRatio: false },
-    { title: {display: true, text: `How many Meals did I eat?`, fontsize: 25},  }
+    { title: {display: true, text: `How many Meals did I eat?`, fontsize: 25,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
   }/>
 
   <br/><br/><br/>
@@ -273,32 +280,25 @@ options: {
 
       <Bar data={dataObject.water} width={100}	height={50} options={
     { maintainAspectRatio: false },
-    { title: {display: true, text: `How many Cups of water did I drink?`, fontsize: 25},  }
+    { title: {display: true, text: `How many Cups of water did I drink?`, fontsize: 25,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
       }/><br/><br/><br/>
       <Bar data={dataObject.sleep} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `How many hours I've slept.`, fontsize: 25},  }
+      { title: {display: true, text: `How many hours I've slept.`, fontsize: 25,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
       }/><br/><br/><br/>
       <Bar data={dataObject.poop} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `How many times I've had a bowel movement.`, fontsize: 25},  }
+      { title: {display: true, text: `How many times I've had a bowel movement.`, fontsize: 25,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
       }/><br/><br/><br/>
       <Bar data={dataObject.friends} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Hours spent with friends.`, fontsize: 25},  }
+      { title: {display: true, text: `Hours spent with friends.`, fontsize: 25,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana', fontFamily: 'verdana'},  }
       }/><br/><br/><br/>
       <Bar data={dataObject.family} width={100}	height={50} options={
       { maintainAspectRatio: false },
-      { title: {display: true, text: `Hours spent with family.`, fontsize: 25},  }
-      }/><br/><br/><br/>
+      { title: {display: true, text: `Hours spent with family.`, fontsize: 35,fontColor: 'rgba(46, 18, 45, 0.96)', fontFamily: 'verdana'},  }
+      }/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-
-      <Link className='item' to={'/analytics'}>
-      <button>Go back</button>
-      </Link><br/>
-        <Link className='item' to={'/allneeds'}>
-        <button>See All Needs Analytic</button>
-        </Link><br/>
       </div>
       </div>
     )
